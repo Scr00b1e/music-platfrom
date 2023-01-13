@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import { useRouter } from 'next/router';
 
 interface AppBarProps extends MuiAppBarProps {
     open?: boolean;
@@ -41,9 +42,15 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
+const menuNav = [
+    { text: 'Home', nav: '/' },
+    { text: 'Tracks', nav: '/tracks' },
+    { text: 'Albums', nav: '/albums' }
+]
+
 export default function Navbar() {
-    const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const router = useRouter()
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -90,8 +97,8 @@ export default function Navbar() {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem key={text} disablePadding>
+                    {menuNav.map(({ text, nav }, id) => (
+                        <ListItem key={id} disablePadding onClick={() => router.push(nav)}>
                             <ListItemButton>
                                 <ListItemText primary={text} />
                             </ListItemButton>
