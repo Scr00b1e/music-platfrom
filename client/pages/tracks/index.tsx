@@ -1,9 +1,29 @@
+import { Button, Card, Grid } from '@mui/material'
+import { Box } from '@mui/system'
+import { useRouter } from 'next/router'
 import React from 'react'
+import { ITrack } from '../../types/Tracks'
 
-export const Tracks = () => {
+const Tracks: React.FC = () => {
+    const router = useRouter()
+    const tracks: ITrack = [
+        { _id: 0, name: 'Track 1', artist: 'No one 1', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] },
+        { _id: 0, name: 'Track 2', artist: 'No one 2', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] },
+        { _id: 0, name: 'Track 3', artist: 'No one 3', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] }
+    ]
+
     return (
-        <div>
-            Tracks stuff
-        </div>
+        <Grid container justifyContent={'center'}>
+            <Card sx={{ width: 900 }}>
+                <Box p={2}>
+                    <Grid container justifyContent={'space-between'}>
+                        <h1>Tracks list</h1>
+                        <Button onClick={() => router.push('/tracks/create')}>Upload</Button>
+                    </Grid>
+                </Box>
+            </Card>
+        </Grid>
     )
 }
+
+export default Tracks

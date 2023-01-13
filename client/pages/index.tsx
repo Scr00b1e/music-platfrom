@@ -1,9 +1,10 @@
+import { Grid } from "@mui/material";
 
 
 export default function Home() {
   return (
-    <div className="container">
-      <h1>hello!</h1>
-    </div>
+    <Grid>
+      <h3>sup</h3>
+    </Grid>
   )
 }
