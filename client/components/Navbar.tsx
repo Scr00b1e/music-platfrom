@@ -12,6 +12,8 @@ import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useRouter } from 'next/router';
 
 interface AppBarProps extends MuiAppBarProps {
@@ -72,7 +74,7 @@ export default function Navbar() {
                         edge="start"
                         sx={{ mr: 2, ...(open && { display: 'none' }) }}
                     >
-                        <h1>open</h1>
+                        <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Persistent drawer
@@ -92,7 +94,7 @@ export default function Navbar() {
             >
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
-                        <h5>Close</h5>
+                        <ChevronLeftIcon />
                     </IconButton>
                 </DrawerHeader>
                 <Divider />

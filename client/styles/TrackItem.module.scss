@@ -1,0 +1,31 @@
+.track {
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+
+    &__img {
+        width: 70px;
+        height: 70px;
+        margin: 0 10px;
+    }
+
+    &__item {
+        width: 200;
+        margin: 0 15px;
+
+        h3 {
+            font-size: 22px;
+            width: 700;
+        }
+
+        p {
+            font-size: 16px;
+            opacity: .5;
+        }
+    }
+
+    &__delete {
+        margin-left: auto;
+    }
+}
