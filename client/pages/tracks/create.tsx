@@ -1,10 +1,12 @@
-import { FileUpload } from '@mui/icons-material'
 import { Button, Grid, TextField } from '@mui/material'
 import React from 'react'
+import FileUpload from '../../components/FileUpload'
 import StepWrapper from '../../components/StepWrapper'
 
 const Create: React.FC = () => {
     const [activeStep, setActiveStep] = React.useState(0)
+    const [picture, setPicture] = React.useState(null)
+    const [audio, setAudio] = React.useState(null)
 
     const Next = () => {
         if (activeStep !== 2) {
@@ -29,10 +31,15 @@ const Create: React.FC = () => {
                     </Grid>
                 }
                 {activeStep === 1 &&
-                    <FileUpload file={''} setFile={() => ({})} />
+                    <FileUpload setFile={setPicture} accept='image/*' >
+                        <Button>Upload Cover</Button>
+                    </FileUpload>
                 }
                 {activeStep === 2 &&
-                    <h1>Track uploading</h1>}
+                    <FileUpload setFile={setAudio} accept='audio/*' >
+                        <Button>Upload Track</Button>
+                    </FileUpload>
+                }
             </StepWrapper>
             <Grid container justifyContent={'space-between'}>
                 <Button disabled={activeStep === 0} onClick={Back}>Back</Button>
