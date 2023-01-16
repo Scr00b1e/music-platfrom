@@ -8,9 +8,9 @@ import { ITrack } from '../../types/Tracks'
 const Tracks: React.FC = () => {
     const router = useRouter()
     const tracks: ITrack = [
-        { _id: 0, name: 'Track 1', artist: 'No one 1', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] },
-        { _id: 0, name: 'Track 2', artist: 'No one 2', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] },
-        { _id: 0, name: 'Track 3', artist: 'No one 3', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] }
+        { _id: '0', name: 'Track 1', artist: 'No one 1', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] },
+        { _id: '1', name: 'Track 2', artist: 'No one 2', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] },
+        { _id: '2', name: 'Track 3', artist: 'No one 3', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] }
     ]
 
     return (
