@@ -3,8 +3,9 @@ import type { AppProps } from 'next/app'
 import Navbar from '../components/Navbar'
 import { Container } from '@mui/system'
 import Player from '../components/Player'
+import { wrapper } from '../store'
 
-export default function App({ Component, pageProps }: AppProps) {
+const WrappedApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Navbar />
@@ -17,3 +18,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   )
 }
+
+export default wrapper.withRedux(WrappedApp);

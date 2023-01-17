@@ -3,7 +3,6 @@ import IconButton from '@mui/material/IconButton/IconButton'
 import React from 'react'
 import styles from '../styles/Player.module.scss'
 import { ITrack } from '../types/Tracks'
-import { Container } from '@mui/system'
 import Grid from '@mui/material/Grid/Grid'
 import TrackProgress from './TrackProgress'
 
