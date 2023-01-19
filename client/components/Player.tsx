@@ -1,12 +1,11 @@
 import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material'
-import IconButton from '@mui/material/IconButton/IconButton'
 import React from 'react'
 import styles from '../styles/Player.module.scss'
-import Grid from '@mui/material/Grid/Grid'
 import TrackProgress from './TrackProgress'
 import { useTypedSelector } from '../hooks/useTypedSelector'
 import { useActions } from '../hooks/useActions'
 import { setDurationTrack } from '../store/action-creators/player'
+import { Grid, IconButton } from '@mui/material'
 
 let audio: HTMLAudioElement
 
