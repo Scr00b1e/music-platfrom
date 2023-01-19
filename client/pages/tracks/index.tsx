@@ -3,15 +3,20 @@ import { Box } from '@mui/system'
 import { useRouter } from 'next/router'
 import React from 'react'
 import TrackList from '../../components/TrackList'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { NextThunkDispatch, wrapper } from '../../store'
+import { fetchTracks } from '../../store/action-creators/track'
 import { ITrack } from '../../types/Tracks'
 
 const Tracks: React.FC = () => {
     const router = useRouter()
-    const tracks: ITrack = [
-        { _id: '0', name: 'Track 1', artist: 'No one 1', text: 'Some text', listens: 5, audio: './KSLV Noh-Override', picture: '', comments: [] },
-        { _id: '1', name: 'Track 2', artist: 'No one 2', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] },
-        { _id: '2', name: 'Track 3', artist: 'No one 3', text: 'Some text', listens: 5, audio: '', picture: '', comments: [] }
-    ]
+    const { tracks, error } = useTypedSelector((state) => state.track)
+
+    if (error) {
+        return <Grid container justifyContent={'center'}>
+            <h1>Something is wrong...</h1>
+        </Grid>
+    }
 
     return (
         <Grid container justifyContent={'center'}>
@@ -29,3 +34,11 @@ const Tracks: React.FC = () => {
 }
 
 export default Tracks
+
+export const getServerSideProps =
+    wrapper.getServerSideProps(async ({ store }) => {
+
+        const dispatch = store.dispatch as NextThunkDispatch
+        await dispatch(await fetchTracks())
+
+    })
